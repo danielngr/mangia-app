@@ -1,5 +1,5 @@
 const CACHE = 'mangia-v1';
-const ASSETS = ['/', '/mangia.html', '/mangia.js', '/manifest.json'];
+const ASSETS = ['/', '/index.html', '/mangia.js', '/manifest.json'];
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -22,6 +22,6 @@ self.addEventListener('fetch', e => {
       e.request.url.includes('fonts.googleapis.com') ||
       e.request.url.includes('unpkg.com')) return;
   e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match('/mangia.html')))
+    caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match('/index.html')))
   );
 });
